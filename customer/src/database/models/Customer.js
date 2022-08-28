@@ -12,31 +12,30 @@ const CustomerSchema = new Schema({
     ],
     cart: [
         {
-            product: {
+          product: { 
                 _id: { type: String, require: true},
                 name: { type: String},
                 banner: { type: String},
-                price: { type: Number}
+                price: { type: Number},
             },
-            unit: { type: Number, require: true}
+          unit: { type: Number, require: true}
         }
     ],
     wishlist:[
-        { 
-            _id: { type: String, require: true},
-            name: { type: String},
-            description: {type: String},
-            banner: { type: String},
-            available: {type: Boolean},
-            price: { type: Number}
+        {
+            _id: { type: String, require: true },
+            name: { type: String },
+            description: { type: String },
+            banner: { type: String },
+            avalable: { type: Boolean },
+            price: { type: Number },
         }
     ],
-    orders: [ 
-        { 
-            _id: { type: String, require: true},
+    orders: [
+        {
+            _id: {type: String, required: true},
             amount: { type: String},
             date: {type: Date, default: Date.now()}
-
         }
     ]
 },{

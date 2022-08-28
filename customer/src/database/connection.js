@@ -7,13 +7,13 @@ module.exports = async() => {
         await mongoose.connect(DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            useCreateIndex: true
         });
         console.log('Db Connected');
         
     } catch (error) {
-        console.log('Error ============')
+        console.error('Error ============ ON DB Connection')
         console.log(error);
-        process.exit(1);
     }
  
 };
