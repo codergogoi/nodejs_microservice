@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=prod node src/index.js",
-    "dev": "NODE_ENV=dev nodemon src/index.js"
+    "dev": "NODE_ENV=dev nodemon src/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -15,10 +16,13 @@
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3"
   }
 }
