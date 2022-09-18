@@ -2,7 +2,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const amqplib = require("amqplib");
 
-const { APP_SECRET, EXCHANGE_NAME, SHOPPING_SERVICE } = require("../config");
+const {
+  APP_SECRET,
+  EXCHANGE_NAME,
+  SHOPPING_SERVICE,
+  MSG_QUEUE_URL,
+} = require("../config");
 
 //Utility functions
 (module.exports.GenerateSalt = async () => {
@@ -47,7 +52,7 @@ module.exports.FormateData = (data) => {
 
 module.exports.CreateChannel = async () => {
   try {
-    const connection = await amqplib.connect("amqp://localhost");
+    const connection = await amqplib.connect(MSG_QUEUE_URL);
     const channel = await connection.createChannel();
     await channel.assertQueue(EXCHANGE_NAME, "direct", { durable: true });
     return channel;
